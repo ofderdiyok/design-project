@@ -44,8 +44,8 @@ public class CERecipeIngredientService {
         }
 
         entity.setId(detailDto.getId());
-        entity.setRecipe(detailDto.getRecipeDetailDto() != null ? this.recipeService.toEntity(detailDto.getRecipeDetailDto()) :  null);
-        entity.setIngredient(detailDto.getIngredientDetailDto() != null ? this.ingredientService.toEntity(detailDto.getIngredientDetailDto()) : null);
+        entity.setRecipe(detailDto.getRecipeDetailDto() != null ? this.recipeService.findEntity(detailDto.getRecipeDetailDto()) :  null);
+        entity.setIngredient(detailDto.getIngredientDetailDto() != null ? this.ingredientService.findEntity(detailDto.getIngredientDetailDto()) : null);
 
         return entity;
     }

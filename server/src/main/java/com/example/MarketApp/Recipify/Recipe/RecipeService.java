@@ -36,11 +36,28 @@ public class RecipeService {
                 entity = entityFound.get();
             }
         }
+
         entity.setId(detailDto.getId());
         entity.setName(detailDto.getName());
         entity.setDescription(detailDto.getDescription());
         entity.setCalories(detailDto.getCalories());
         entity.setImage(detailDto.getImage());
+
+        return entity;
+    }
+
+    public Recipe findEntity(RecipeDetailDto detailDto){
+        if (detailDto == null) {
+            return null;
+        }
+
+        Recipe entity = new Recipe();
+        if (detailDto.getId() != null){
+            Optional<Recipe> entityFound = this.recipeRepository.findById(detailDto.getId());
+            if (entityFound.isPresent()){
+                entity = entityFound.get();
+            }
+        }
 
         return entity;
     }
