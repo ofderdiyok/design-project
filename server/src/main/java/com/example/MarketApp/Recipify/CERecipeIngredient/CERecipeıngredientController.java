@@ -23,7 +23,7 @@ public class CERecipeıngredientController {
     }
 
     @PostMapping("/save")
-    public CERecipeIngredientDetailDto saveEntity(@RequestBody CERecipeIngredientDetailDto detailDto){
+    public CERecipeIngredientDetailDto saveEntity(@RequestBody CERecipeIngredientDetailDto detailDto) throws Exception {
         CERecipeIngredientDetailDto savedEntityToDetailDto = this.ceRecipeIngredientService.saveOrUpdate(detailDto);
         return savedEntityToDetailDto;
     }

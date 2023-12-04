@@ -68,10 +68,19 @@ public class CERecipeIngredientService {
         return ceRecipeIngredientList;
     }
 
-    public CERecipeIngredientDetailDto saveOrUpdate(CERecipeIngredientDetailDto detailDto){
-        CERecipeIngredient ceRecipeIngredient = toEntity(detailDto);
-        CERecipeIngredient updatedOrSavedEntity = this.ceRecipeIngredientRepository.save(ceRecipeIngredient);
-        return toDetailDto(updatedOrSavedEntity);
+    public CERecipeIngredientDetailDto saveOrUpdate(CERecipeIngredientDetailDto detailDto) throws Exception {
+        long recipe_id_dto = detailDto.getRecipeDetailDto().getId();
+        long ingredient_id_dto = detailDto.getIngredientDetailDto().getId();
+
+        Optional<CERecipeIngredient> entityFound = this.ceRecipeIngredientRepository.findAllByRecipeIdAndIngredientId(recipe_id_dto, ingredient_id_dto);
+
+        if (entityFound.isEmpty()){
+            CERecipeIngredient ceRecipeIngredient = toEntity(detailDto);
+            CERecipeIngredient updatedOrSavedEntity = this.ceRecipeIngredientRepository.save(ceRecipeIngredient);
+            return toDetailDto(updatedOrSavedEntity);
+        } else{
+            throw new Exception("Same recipe-ingredient entity already exist!");
+        }
     }
 
     @Transactional
