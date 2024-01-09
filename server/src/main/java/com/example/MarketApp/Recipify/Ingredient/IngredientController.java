@@ -25,7 +25,7 @@ public class IngredientController extends BaseController<Ingredient> {
 
     @Override
     public String getName() {
-        return "ingredients";
+        return null;
     }
 
     @GetMapping("/list")

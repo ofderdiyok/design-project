@@ -24,15 +24,6 @@ public class IngredientService extends BaseService<Ingredient> {
         return this.ingredientRepository;
     }
 
-    public IngredientDetailDto setBaseProperties(IngredientDetailDto dto, Ingredient entity){
-        dto.setId(entity.getId());
-        dto.setCreatedBy(entity.getCreatedBy());
-        dto.setCreatedDate(entity.getCreatedDate());
-        dto.setLastUpdatedBy(entity.getLastUpdatedBy());
-        dto.setLastUpdatedDate(entity.getLastUpdatedDate());
-        return dto;
-    }
-
     public Ingredient toEntity(IngredientDetailDto detailDto){
         if (detailDto == null) {
             return null;
@@ -46,7 +37,6 @@ public class IngredientService extends BaseService<Ingredient> {
             }
         }
 
-        entity.setId(detailDto.getId());
         entity.setName(detailDto.getName());
         entity.setRecipe(this.recipeService.getRepository().findById(detailDto.getRecipe().getId()).get());
 
@@ -59,7 +49,7 @@ public class IngredientService extends BaseService<Ingredient> {
         }
 
         IngredientDetailDto detailDto = new IngredientDetailDto();
-        detailDto = setBaseProperties(detailDto, ingredient);
+        detailDto = setBaseDtoProperties(detailDto, ingredient);
         detailDto.setName(ingredient.getName());
 
         return detailDto;
