@@ -1,6 +1,6 @@
 package com.example.MarketApp.Recipify.Recipe;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.MarketApp.business.base.repository.BaseRepository;
 
-public interface RecipeRepository extends JpaRepository<Recipe, Long> {
+public interface RecipeRepository extends BaseRepository<Recipe> {
 }

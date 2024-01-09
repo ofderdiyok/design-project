@@ -2,13 +2,14 @@ package com.example.MarketApp.business.base.dto;
 
 import jakarta.persistence.MappedSuperclass;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @MappedSuperclass
 public class BaseDetailDto {
     private Long id;
     private String createdBy;
-    private Date createdDate;
+    private LocalDate createdDate;
     private String lastUpdatedBy;
     private Date lastUpdatedDate;
 
@@ -31,12 +32,12 @@ public class BaseDetailDto {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedDate() {
+    public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = LocalDate.now();
     }
 
     public String getLastUpdatedBy() {

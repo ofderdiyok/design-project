@@ -1,12 +1,16 @@
 package com.example.MarketApp.Recipify.Recipe;
 
+import com.example.MarketApp.Recipify.Ingredient.Ingredient;
 import com.example.MarketApp.business.base.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
-@Table(name = "recipe")
+@Table(name = "recipes")
 public class Recipe extends BaseEntity {
     @Column(name = "name")
     private String name;
@@ -19,6 +23,10 @@ public class Recipe extends BaseEntity {
 
     @Column(name = "calories")
     private double calories;
+
+    @OneToMany(mappedBy = "recipe")
+    @JsonManagedReference
+    private List<Ingredient> ingredients;
 
     public Recipe() {
     }
@@ -53,5 +61,13 @@ public class Recipe extends BaseEntity {
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }

@@ -1,6 +1,9 @@
 package com.example.MarketApp.Recipify.Ingredient;
 
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
+import com.example.MarketApp.Recipify.Recipe.RecipeService;
+import com.example.MarketApp.business.base.repository.BaseRepository;
+import com.example.MarketApp.business.base.service.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -8,11 +11,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class IngredientService {
+public class IngredientService extends BaseService<Ingredient> {
     private final IngredientRepository ingredientRepository;
+    private final RecipeService recipeService;
 
-    public IngredientService(IngredientRepository ingredientRepository) {
+    public IngredientService(IngredientRepository ingredientRepository, RecipeService recipeService) {
         this.ingredientRepository = ingredientRepository;
+        this.recipeService = recipeService;
+    }
+
+    public BaseRepository<Ingredient> getRepository(){
+        return this.ingredientRepository;
     }
 
     public IngredientDetailDto setBaseProperties(IngredientDetailDto dto, Ingredient entity){
@@ -39,22 +48,7 @@ public class IngredientService {
 
         entity.setId(detailDto.getId());
         entity.setName(detailDto.getName());
-
-        return entity;
-    }
-
-    public Ingredient findEntity(IngredientDetailDto detailDto){
-        if (detailDto == null) {
-            return null;
-        }
-
-        Ingredient entity = new Ingredient();
-        if (detailDto.getId() != null){
-            Optional<Ingredient> entityFound = this.ingredientRepository.findById(detailDto.getId());
-            if (entityFound.isPresent()){
-                entity = entityFound.get();
-            }
-        }
+        entity.setRecipe(this.recipeService.getRepository().findById(detailDto.getRecipe().getId()).get());
 
         return entity;
     }

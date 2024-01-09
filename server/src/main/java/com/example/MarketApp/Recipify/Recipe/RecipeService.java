@@ -1,6 +1,8 @@
 package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
+import com.example.MarketApp.business.base.repository.BaseRepository;
+import com.example.MarketApp.business.base.service.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -8,11 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RecipeService {
+public class RecipeService extends BaseService<Recipe> {
     private final RecipeRepository recipeRepository;
 
     public RecipeService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
+    }
+
+    public BaseRepository<Recipe> getRepository(){
+        return this.recipeRepository;
     }
 
     public RecipeDetailDto setBaseProperties(RecipeDetailDto dto, Recipe entity){
@@ -42,22 +48,6 @@ public class RecipeService {
         entity.setDescription(detailDto.getDescription());
         entity.setCalories(detailDto.getCalories());
         entity.setImage(detailDto.getImage());
-
-        return entity;
-    }
-
-    public Recipe findEntity(RecipeDetailDto detailDto){
-        if (detailDto == null) {
-            return null;
-        }
-
-        Recipe entity = new Recipe();
-        if (detailDto.getId() != null){
-            Optional<Recipe> entityFound = this.recipeRepository.findById(detailDto.getId());
-            if (entityFound.isPresent()){
-                entity = entityFound.get();
-            }
-        }
 
         return entity;
     }

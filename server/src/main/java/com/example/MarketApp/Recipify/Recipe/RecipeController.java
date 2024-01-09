@@ -1,18 +1,30 @@
 package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
+import com.example.MarketApp.business.base.controller.BaseController;
+import com.example.MarketApp.business.base.service.BaseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recipe")
-public class RecipeController {
+@RequestMapping("/api/recipes")
+public class RecipeController extends BaseController<Recipe> {
     private final RecipeService recipeService;
 
     public RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
+    }
+
+    @Override
+    public BaseService<Recipe> getService() {
+        return this.recipeService;
+    }
+
+    @Override
+    public String getName() {
+        return "recipes";
     }
 
     //pageable a çevirebiliriz. mobil kısımını araştırmak lazım.

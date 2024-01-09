@@ -1,16 +1,23 @@
 package com.example.MarketApp.Recipify.Ingredient;
 
+import com.example.MarketApp.Recipify.Recipe.Recipe;
 import com.example.MarketApp.business.base.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "ingredient")
+@Table(name = "ingredients")
 public class Ingredient extends BaseEntity {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "recipe_id", referencedColumnName = "id")
+    @JsonBackReference
+    private Recipe recipe;
 
     public Ingredient() {
     }
