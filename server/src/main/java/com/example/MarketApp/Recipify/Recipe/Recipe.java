@@ -24,10 +24,6 @@ public class Recipe extends BaseEntity {
     @Column(name = "calories")
     private double calories;
 
-    @OneToMany(mappedBy = "recipe")
-    @JsonManagedReference
-    private List<Ingredient> ingredients;
-
     public Recipe() {
     }
 
@@ -61,13 +57,5 @@ public class Recipe extends BaseEntity {
 
     public void setCalories(double calories) {
         this.calories = calories;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
     }
 }

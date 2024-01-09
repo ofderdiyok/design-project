@@ -38,7 +38,6 @@ public class IngredientService extends BaseService<Ingredient> {
         }
 
         entity.setName(detailDto.getName());
-        entity.setRecipe(this.recipeService.getRepository().findById(detailDto.getRecipe().getId()).get());
 
         return entity;
     }

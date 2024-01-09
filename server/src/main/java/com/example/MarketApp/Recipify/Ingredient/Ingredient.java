@@ -14,11 +14,6 @@ public class Ingredient extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "recipe_id", referencedColumnName = "id")
-    @JsonBackReference
-    private Recipe recipe;
-
     public Ingredient() {
     }
 
