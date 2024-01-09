@@ -1,16 +1,10 @@
 package com.example.MarketApp.Recipify.Recipe;
 
-import com.example.MarketApp.Recipify.Ingredient.Ingredient;
 import com.example.MarketApp.business.base.entity.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
 
-import java.util.List;
-
-@Data
 @Entity
-@Table(name = "recipes")
+@Table(name = "recipe")
 public class Recipe extends BaseEntity {
     @Column(name = "name")
     private String name;
