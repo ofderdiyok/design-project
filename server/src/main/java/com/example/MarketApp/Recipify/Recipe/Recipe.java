@@ -1,6 +1,11 @@
 package com.example.MarketApp.Recipify.Recipe;
 
+import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "recipe")
@@ -21,6 +26,10 @@ public class Recipe{
 
     @Column(name = "calories")
     private double calories;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
+    private Set<C_RecipeIngredient> cRecipeIngredients = new HashSet<>();
 
     public Recipe() {
     }
@@ -63,5 +72,13 @@ public class Recipe{
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+
+    public Set<C_RecipeIngredient> getcRecipeIngredients() {
+        return cRecipeIngredients;
+    }
+
+    public void setcRecipeIngredients(Set<C_RecipeIngredient> cRecipeIngredients) {
+        this.cRecipeIngredients = cRecipeIngredients;
     }
 }

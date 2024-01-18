@@ -3,8 +3,10 @@ package com.example.MarketApp.Recipify.C_RecipeIngredient;
 import com.example.MarketApp.Recipify.C_RecipeIngredient.dto.C_RecipeIngredientDetailDto;
 import com.example.MarketApp.Recipify.Ingredient.Ingredient;
 import com.example.MarketApp.Recipify.Ingredient.IngredientService;
+import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
 import com.example.MarketApp.Recipify.Recipe.Recipe;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
+import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,8 +38,8 @@ public class C_RecipeIngredientService {
         }
 
         entity.setId(detailDto.getId());
-        entity.setRecipe(detailDto.getRecipe() != null ? this.recipeService.toEntity(detailDto.getRecipe()) : null);
-        entity.setIngredient(detailDto.getIngredient() != null ? this.ingredientService.toEntity(detailDto.getIngredient()) : null);
+        entity.setRecipe(detailDto.getRecipe() != null ? this.recipeService.toDirectlyEntity(detailDto.getRecipe()) : null);
+        entity.setIngredient(detailDto.getIngredient() != null ? this.ingredientService.toDirectlyEntity(detailDto.getIngredient()) : null);
 
         return entity;
     }
@@ -64,7 +66,6 @@ public class C_RecipeIngredientService {
             throw new Exception("Recipe - Ingredients couldn't find!");
         }
 
-
         if (detailDto.getRecipe() == null || detailDto.getIngredient() == null){
             throw new Exception("Parameters could not be found. Please choose from existing recipe and ingredients.");
         }
@@ -83,6 +84,8 @@ public class C_RecipeIngredientService {
 
         C_RecipeIngredient cRecipeIngredient = toEntity(detailDto);
         C_RecipeIngredient updatedOrSavedEntity = this.cRecipeIngredientRepository.save(cRecipeIngredient);
+
+
         return toDetailDto(updatedOrSavedEntity);
     }
 }

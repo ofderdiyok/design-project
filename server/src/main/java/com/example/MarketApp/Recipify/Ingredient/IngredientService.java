@@ -39,6 +39,22 @@ public class IngredientService {
         return entity;
     }
 
+    public Ingredient toDirectlyEntity(IngredientDetailDto detailDto){
+        if (detailDto == null) {
+            return null;
+        }
+
+        Ingredient entity = new Ingredient();
+        if (detailDto.getId() != null){
+            Optional<Ingredient> entityFound = this.ingredientRepository.findById(detailDto.getId());
+            if (entityFound.isPresent()){
+                entity = entityFound.get();
+            }
+        }
+
+        return entity;
+    }
+
     public IngredientDetailDto toDetailDto(Ingredient ingredient){
         if (ingredient == null) {
             return null;

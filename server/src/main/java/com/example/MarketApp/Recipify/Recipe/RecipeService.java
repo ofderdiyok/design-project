@@ -40,6 +40,22 @@ public class RecipeService {
         return entity;
     }
 
+    public Recipe toDirectlyEntity(RecipeDetailDto detailDto){
+        if (detailDto == null) {
+            return null;
+        }
+
+        Recipe entity = new Recipe();
+        if (detailDto.getId() != null){
+            Optional<Recipe> entityFound = this.recipeRepository.findById(detailDto.getId());
+            if (entityFound.isPresent()){
+                entity = entityFound.get();
+            }
+        }
+
+        return entity;
+    }
+
     public RecipeDetailDto toDetailDto(Recipe recipe){
         if (recipe == null) {
             return null;
