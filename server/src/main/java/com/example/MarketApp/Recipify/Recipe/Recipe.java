@@ -29,7 +29,7 @@ public class Recipe{
 
     @JsonIgnore
     @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
-    private Set<C_RecipeIngredient> cRecipeIngredients = new HashSet<>();
+    private Set<C_RecipeIngredient> recipeIngredients = new HashSet<>();
 
     public Recipe() {
     }
@@ -74,11 +74,11 @@ public class Recipe{
         this.calories = calories;
     }
 
-    public Set<C_RecipeIngredient> getcRecipeIngredients() {
-        return cRecipeIngredients;
+    public Set<C_RecipeIngredient> getRecipeIngredients() {
+        return recipeIngredients;
     }
 
-    public void setcRecipeIngredients(Set<C_RecipeIngredient> cRecipeIngredients) {
-        this.cRecipeIngredients = cRecipeIngredients;
+    public void setRecipeIngredients(Set<C_RecipeIngredient> recipeIngredients) {
+        this.recipeIngredients = recipeIngredients;
     }
 }

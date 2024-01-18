@@ -1,6 +1,7 @@
 package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
+import com.example.MarketApp.Recipify.Recipe.dto.RecipeSearchDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,5 +85,9 @@ public class RecipeService {
     @Transactional
     public void deleteEntity(RecipeDetailDto detailDto){
         this.recipeRepository.deleteById(detailDto.getId());
+    }
+
+    public List<Recipe> findAllByExample(RecipeSearchDto searchDto){
+        return this.recipeRepository.findByExample(searchDto);
     }
 }

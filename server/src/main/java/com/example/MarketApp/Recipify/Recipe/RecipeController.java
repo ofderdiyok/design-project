@@ -1,6 +1,7 @@
 package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
+import com.example.MarketApp.Recipify.Recipe.dto.RecipeSearchDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +30,10 @@ public class RecipeController {
     public ResponseEntity<Void> deleteEntity(@RequestBody RecipeDetailDto detailDto){
         this.recipeService.deleteEntity(detailDto);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/findByExample")
+    public List<Recipe> findAllByExample(@RequestBody RecipeSearchDto searchDto){
+        return this.recipeService.findAllByExample(searchDto);
     }
 }
