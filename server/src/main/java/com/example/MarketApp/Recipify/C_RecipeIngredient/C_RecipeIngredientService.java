@@ -8,6 +8,7 @@ import com.example.MarketApp.Recipify.Recipe.Recipe;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -82,10 +83,19 @@ public class C_RecipeIngredientService {
             throw new Exception("Ingredient could not be found. Please choose from existing ingredient.");
         }
 
+        Optional<C_RecipeIngredient> entity = this.cRecipeIngredientRepository.findByRecipeIdAndIngredientId(detailDto.getRecipe().getId(), detailDto.getIngredient().getId());
+        if (entity.isPresent()){
+            throw new Exception("This recipe already have that ingredient");
+        }
+
         C_RecipeIngredient cRecipeIngredient = toEntity(detailDto);
         C_RecipeIngredient updatedOrSavedEntity = this.cRecipeIngredientRepository.save(cRecipeIngredient);
 
-
         return toDetailDto(updatedOrSavedEntity);
+    }
+
+    @Transactional
+    public void deleteEntity(C_RecipeIngredientDetailDto detailDto){
+        this.cRecipeIngredientRepository.deleteById(detailDto.getId());
     }
 }
