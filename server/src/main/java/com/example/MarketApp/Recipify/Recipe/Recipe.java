@@ -1,11 +1,15 @@
 package com.example.MarketApp.Recipify.Recipe;
 
-import com.example.MarketApp.business.base.entity.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "recipe")
-public class Recipe extends BaseEntity {
+public class Recipe{
+    @Id
+    @Column(name = "id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "name")
     private String name;
 
@@ -19,6 +23,14 @@ public class Recipe extends BaseEntity {
     private double calories;
 
     public Recipe() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

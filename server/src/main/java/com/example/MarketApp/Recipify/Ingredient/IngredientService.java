@@ -2,8 +2,6 @@ package com.example.MarketApp.Recipify.Ingredient;
 
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
-import com.example.MarketApp.business.base.repository.BaseRepository;
-import com.example.MarketApp.business.base.service.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,17 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class IngredientService extends BaseService<Ingredient> {
+public class IngredientService {
     private final IngredientRepository ingredientRepository;
-    private final RecipeService recipeService;
 
-    public IngredientService(IngredientRepository ingredientRepository, RecipeService recipeService) {
+    public IngredientService(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
-        this.recipeService = recipeService;
-    }
-
-    public BaseRepository<Ingredient> getRepository(){
-        return this.ingredientRepository;
     }
 
     public Ingredient toEntity(IngredientDetailDto detailDto){
@@ -37,6 +29,7 @@ public class IngredientService extends BaseService<Ingredient> {
             }
         }
 
+        entity.setId(detailDto.getId());
         entity.setName(detailDto.getName());
 
         return entity;
@@ -48,15 +41,14 @@ public class IngredientService extends BaseService<Ingredient> {
         }
 
         IngredientDetailDto detailDto = new IngredientDetailDto();
-        detailDto = setBaseDtoProperties(detailDto, ingredient);
+        detailDto.setId(ingredient.getId());
         detailDto.setName(ingredient.getName());
 
         return detailDto;
     }
 
     public List<Ingredient> findAll(){
-        List<Ingredient> ingredientList = this.ingredientRepository.findAll();
-        return ingredientList;
+        return this.ingredientRepository.findAll();
     }
 
     public IngredientDetailDto saveOrUpdate(IngredientDetailDto detailDto){

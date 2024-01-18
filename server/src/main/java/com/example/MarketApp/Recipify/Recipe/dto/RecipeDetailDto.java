@@ -1,14 +1,21 @@
 package com.example.MarketApp.Recipify.Recipe.dto;
 
-import com.example.MarketApp.business.base.dto.BaseDetailDto;
-
-public class RecipeDetailDto extends BaseDetailDto {
+public class RecipeDetailDto {
+    private Long id;
     private String name;
     private String description;
     private String image;
     private double calories;
 
     public RecipeDetailDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

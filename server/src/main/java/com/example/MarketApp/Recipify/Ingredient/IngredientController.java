@@ -1,8 +1,6 @@
 package com.example.MarketApp.Recipify.Ingredient;
 
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
-import com.example.MarketApp.business.base.controller.BaseController;
-import com.example.MarketApp.business.base.service.BaseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/ingredients")
-public class IngredientController extends BaseController<Ingredient> {
+public class IngredientController{
 
     private final IngredientService ingredientService;
 
@@ -18,26 +16,14 @@ public class IngredientController extends BaseController<Ingredient> {
         this.ingredientService = ingredientService;
     }
 
-    @Override
-    public BaseService<Ingredient> getService() {
-        return this.ingredientService;
-    }
-
-    @Override
-    public String getName() {
-        return null;
-    }
-
     @GetMapping("/list")
     public List<Ingredient> findAll(){
-        List<Ingredient> ingredientList = this.ingredientService.findAll();
-        return ingredientList;
+        return this.ingredientService.findAll();
     }
 
     @PostMapping("/save")
     public IngredientDetailDto saveEntity(@RequestBody IngredientDetailDto detailDto){
-        IngredientDetailDto savedEntitytoDetailDto = this.ingredientService.saveOrUpdate(detailDto);
-        return savedEntitytoDetailDto;
+        return this.ingredientService.saveOrUpdate(detailDto);
     }
 
     @DeleteMapping("/delete")
