@@ -16,6 +16,10 @@ public class IngredientService {
         this.ingredientRepository = ingredientRepository;
     }
 
+    public IngredientRepository getIngredientRepository() {
+        return ingredientRepository;
+    }
+
     public Ingredient toEntity(IngredientDetailDto detailDto){
         if (detailDto == null) {
             return null;

@@ -15,6 +15,10 @@ public class RecipeService {
         this.recipeRepository = recipeRepository;
     }
 
+    public RecipeRepository getRecipeRepository() {
+        return recipeRepository;
+    }
+
     public Recipe toEntity(RecipeDetailDto detailDto){
         if (detailDto == null) {
             return null;
