@@ -48,14 +48,20 @@ public class RecipeRepositoryImpl implements RecipeRepositoryCustom{
 
         if (dto.getIngredientSelectImplDtoList() != null){
 
-            Set<Long> ingredientIds = dto.getIngredientSelectImplDtoList().stream()
-                    .filter(Objects::nonNull)
-                    .map(IngredientSelectImplDto::getId)
-                    .collect(Collectors.toSet());
+            List<Predicate> ingredientPredicates = new ArrayList<>();
 
+            for (IngredientSelectImplDto ingredientDto : dto.getIngredientSelectImplDtoList()) {
+                if (ingredientDto != null && ingredientDto.getId() != null) {
+                    Predicate ingredientPredicate = recipeRoot.join("recipeIngredients")
+                            .get("ingredient").get("id").in(ingredientDto.getId());
 
+                    ingredientPredicates.add(ingredientPredicate);
+                }
+            }
 
-            predicates.add(recipeRoot.join("recipeIngredients").get("ingredient").get("id").in(ingredientIds));
+            if (!ingredientPredicates.isEmpty()) {
+                predicates.add(criteriaBuilder.and(ingredientPredicates.toArray(new Predicate[0])));
+            }
         }
 
         criteriaQuery.where(
@@ -63,9 +69,7 @@ public class RecipeRepositoryImpl implements RecipeRepositoryCustom{
         );
 
         TypedQuery<Recipe> query = em.createQuery(criteriaQuery);
-        int totalRows = query.getResultList().size();
 
-        List<Recipe> result = query.getResultList();
-        return result;
+        return query.getResultList();
     }
 }
