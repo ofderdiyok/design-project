@@ -1,6 +1,8 @@
 package com.example.MarketApp.Recipify.C_RecipeIngredient;
 
 import com.example.MarketApp.Recipify.C_RecipeIngredient.dto.C_RecipeIngredientDetailDto;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +13,13 @@ import java.util.List;
 public class C_RecipeIngredientController {
     private final C_RecipeIngredientService cRecipeIngredientService;
 
+    @Autowired
     public C_RecipeIngredientController(C_RecipeIngredientService cRecipeIngredientService) {
         this.cRecipeIngredientService = cRecipeIngredientService;
     }
 
     @GetMapping("/list")
-    public List<C_RecipeIngredient> findAll(){
+    public List<C_RecipeIngredient> findAll() {
         return this.cRecipeIngredientService.findAll();
     }
 
@@ -26,7 +29,7 @@ public class C_RecipeIngredientController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteEntity(@RequestBody C_RecipeIngredientDetailDto detailDto){
+    public ResponseEntity<Void> deleteEntity(@RequestBody C_RecipeIngredientDetailDto detailDto) {
         this.cRecipeIngredientService.deleteEntity(detailDto);
         return ResponseEntity.noContent().build();
     }

@@ -1,11 +1,14 @@
 package com.example.MarketApp.Recipify.Recipe.dto;
 
+import java.util.ArrayList;
+
 public class RecipeDetailDto {
     private Long id;
     private String name;
     private String description;
     private String image;
     private double calories;
+    private ArrayList<String> ingredients;
 
     public RecipeDetailDto() {
     }
@@ -48,5 +51,13 @@ public class RecipeDetailDto {
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+
+    public ArrayList<String> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(ArrayList<String> ingredients) {
+        this.ingredients = ingredients;
     }
 }
