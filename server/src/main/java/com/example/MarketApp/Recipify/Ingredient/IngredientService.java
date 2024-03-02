@@ -2,6 +2,8 @@ package com.example.MarketApp.Recipify.Ingredient;
 
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,7 @@ import java.util.Optional;
 public class IngredientService {
     private final IngredientRepository ingredientRepository;
 
+    @Autowired
     public IngredientService(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
     }
@@ -20,15 +23,15 @@ public class IngredientService {
         return ingredientRepository;
     }
 
-    public Ingredient toEntity(IngredientDetailDto detailDto){
+    public Ingredient toEntity(IngredientDetailDto detailDto) {
         if (detailDto == null) {
             return null;
         }
 
         Ingredient entity = new Ingredient();
-        if (detailDto.getId() != null){
+        if (detailDto.getId() != null) {
             Optional<Ingredient> entityFound = this.ingredientRepository.findById(detailDto.getId());
-            if (entityFound.isPresent()){
+            if (entityFound.isPresent()) {
                 entity = entityFound.get();
             }
         }
@@ -39,15 +42,15 @@ public class IngredientService {
         return entity;
     }
 
-    public Ingredient toDirectlyEntity(IngredientDetailDto detailDto){
+    public Ingredient toDirectlyEntity(IngredientDetailDto detailDto) {
         if (detailDto == null) {
             return null;
         }
 
         Ingredient entity = new Ingredient();
-        if (detailDto.getId() != null){
+        if (detailDto.getId() != null) {
             Optional<Ingredient> entityFound = this.ingredientRepository.findById(detailDto.getId());
-            if (entityFound.isPresent()){
+            if (entityFound.isPresent()) {
                 entity = entityFound.get();
             }
         }
@@ -55,7 +58,7 @@ public class IngredientService {
         return entity;
     }
 
-    public IngredientDetailDto toDetailDto(Ingredient ingredient){
+    public IngredientDetailDto toDetailDto(Ingredient ingredient) {
         if (ingredient == null) {
             return null;
         }
@@ -67,18 +70,26 @@ public class IngredientService {
         return detailDto;
     }
 
-    public List<Ingredient> findAll(){
+    public List<Ingredient> findAll() {
         return this.ingredientRepository.findAll();
     }
 
-    public IngredientDetailDto saveOrUpdate(IngredientDetailDto detailDto){
+    public IngredientDetailDto saveOrUpdate(IngredientDetailDto detailDto) {
         Ingredient ingredient = toEntity(detailDto);
         Ingredient updatedOrSavedEntity = this.ingredientRepository.save(ingredient);
         return toDetailDto(updatedOrSavedEntity);
     }
 
     @Transactional
-    public void deleteEntity(IngredientDetailDto detailDto){
+    public void deleteEntity(IngredientDetailDto detailDto) {
         this.ingredientRepository.deleteById(detailDto.getId());
+    }
+
+    public boolean ingredientExistsByName(String ingredientName) {
+        return this.ingredientRepository.existsByName(ingredientName);
+    }
+
+    public Ingredient getIngredientByName(String ingredientName) {
+        return ingredientRepository.findByName(ingredientName);
     }
 }

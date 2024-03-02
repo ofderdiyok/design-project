@@ -7,6 +7,8 @@ import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
 import com.example.MarketApp.Recipify.Recipe.Recipe;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
 import com.example.MarketApp.Recipify.Recipe.dto.RecipeDetailDto;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,72 +21,80 @@ public class C_RecipeIngredientService {
     private final RecipeService recipeService;
     private final IngredientService ingredientService;
 
-    public C_RecipeIngredientService(C_RecipeIngredientRepository cRecipeIngredientRepository, RecipeService recipeService, IngredientService ingredientService) {
+    @Autowired
+    public C_RecipeIngredientService(C_RecipeIngredientRepository cRecipeIngredientRepository,
+            RecipeService recipeService, IngredientService ingredientService) {
         this.cRecipeIngredientRepository = cRecipeIngredientRepository;
         this.recipeService = recipeService;
         this.ingredientService = ingredientService;
     }
 
-    public C_RecipeIngredient toEntity(C_RecipeIngredientDetailDto detailDto){
+    public C_RecipeIngredient toEntity(C_RecipeIngredientDetailDto detailDto) {
         if (detailDto == null) {
             return null;
         }
 
         C_RecipeIngredient entity = new C_RecipeIngredient();
-        if (detailDto.getId() != null){
+        if (detailDto.getId() != null) {
             Optional<C_RecipeIngredient> entityFound = this.cRecipeIngredientRepository.findById(detailDto.getId());
-            if (entityFound.isPresent()){
+            if (entityFound.isPresent()) {
                 entity = entityFound.get();
             }
         }
 
         entity.setId(detailDto.getId());
-        entity.setRecipe(detailDto.getRecipe() != null ? this.recipeService.toDirectlyEntity(detailDto.getRecipe()) : null);
-        entity.setIngredient(detailDto.getIngredient() != null ? this.ingredientService.toDirectlyEntity(detailDto.getIngredient()) : null);
+        entity.setRecipe(
+                detailDto.getRecipe() != null ? this.recipeService.toDirectlyEntity(detailDto.getRecipe()) : null);
+        entity.setIngredient(
+                detailDto.getIngredient() != null ? this.ingredientService.toDirectlyEntity(detailDto.getIngredient())
+                        : null);
 
         return entity;
     }
 
-    public C_RecipeIngredientDetailDto toDetailDto(C_RecipeIngredient entity){
-        if (entity == null){
+    public C_RecipeIngredientDetailDto toDetailDto(C_RecipeIngredient entity) {
+        if (entity == null) {
             return null;
         }
 
         C_RecipeIngredientDetailDto detailDto = new C_RecipeIngredientDetailDto();
         detailDto.setId(entity.getId());
         detailDto.setRecipe(entity.getRecipe() != null ? recipeService.toDetailDto(entity.getRecipe()) : null);
-        detailDto.setIngredient(entity.getIngredient() != null ? ingredientService.toDetailDto(entity.getIngredient()) : null);
+        detailDto.setIngredient(
+                entity.getIngredient() != null ? ingredientService.toDetailDto(entity.getIngredient()) : null);
 
         return detailDto;
     }
 
-    public List<C_RecipeIngredient> findAll(){
+    public List<C_RecipeIngredient> findAll() {
         return this.cRecipeIngredientRepository.findAll();
     }
 
     public C_RecipeIngredientDetailDto saveOrUpdate(C_RecipeIngredientDetailDto detailDto) throws Exception {
-        if (detailDto == null){
-            throw new Exception("Recipe - Ingredients couldn't find!");
+        if (detailDto == null) {
+            throw new Exception("Recipe - Ingredients were not found!");
         }
 
-        if (detailDto.getRecipe() == null || detailDto.getIngredient() == null){
+        if (detailDto.getRecipe() == null || detailDto.getIngredient() == null) {
             throw new Exception("Parameters could not be found. Please choose from existing recipe and ingredients.");
         }
 
         // recipe check
         Optional<Recipe> recipe = this.recipeService.getRecipeRepository().findById(detailDto.getRecipe().getId());
-        if (recipe.isEmpty()){
+        if (recipe.isEmpty()) {
             throw new Exception("Recipe could not be found. Please choose from existing recipes.");
         }
 
         // ingredient check
-        Optional<Ingredient> ingredient = this.ingredientService.getIngredientRepository().findById(detailDto.getIngredient().getId());
-        if (ingredient.isEmpty()){
+        Optional<Ingredient> ingredient = this.ingredientService.getIngredientRepository()
+                .findById(detailDto.getIngredient().getId());
+        if (ingredient.isEmpty()) {
             throw new Exception("Ingredient could not be found. Please choose from existing ingredient.");
         }
 
-        Optional<C_RecipeIngredient> entity = this.cRecipeIngredientRepository.findByRecipeIdAndIngredientId(detailDto.getRecipe().getId(), detailDto.getIngredient().getId());
-        if (entity.isPresent()){
+        Optional<C_RecipeIngredient> entity = this.cRecipeIngredientRepository
+                .findByRecipeIdAndIngredientId(detailDto.getRecipe().getId(), detailDto.getIngredient().getId());
+        if (entity.isPresent()) {
             throw new Exception("This recipe already have that ingredient");
         }
 
@@ -95,7 +105,7 @@ public class C_RecipeIngredientService {
     }
 
     @Transactional
-    public void deleteEntity(C_RecipeIngredientDetailDto detailDto){
+    public void deleteEntity(C_RecipeIngredientDetailDto detailDto) {
         this.cRecipeIngredientRepository.deleteById(detailDto.getId());
     }
 }
