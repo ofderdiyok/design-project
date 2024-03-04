@@ -15,14 +15,14 @@ public class ImageStorageService {
         this.imageStorageRepository = imageStorageRepository;
     }
 
-    public String uploadImage(MultipartFile file) throws IOException{
+    public ImageStorage uploadImage(MultipartFile file) throws IOException{
         int unique_id= (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
         ImageStorage imageStorage = imageStorageRepository.save(ImageStorage.builder()
                                         .name(Integer.toString(unique_id))
                                         .type(file.getContentType())
                                         .imageData(ImageStorageUtils.compressImage(file.getBytes())).build());
         if (imageStorage != null){
-            return "file uploaded succesfully";
+            return imageStorage;
         }
 
         return null;
@@ -33,4 +33,6 @@ public class ImageStorageService {
         byte[] images = ImageStorageUtils.decompressImage(dbImageData.get().getImageData());
         return images;
     }
+
+
 }

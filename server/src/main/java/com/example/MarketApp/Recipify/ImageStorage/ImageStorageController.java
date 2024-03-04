@@ -1,9 +1,10 @@
 package com.example.MarketApp.Recipify.ImageStorage;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -20,11 +21,27 @@ public class ImageStorageController {
 
     @PostMapping("/uploadImage")
     public ResponseEntity<?> uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
-        String uploadImage = imageStorageService.uploadImage(file);
-        
+        ImageStorage uploadImage = imageStorageService.uploadImage(file);
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(uploadImage);
+        //pythondan detect edilen ürünleri liste olarak dönecek
+        String pythonApiUrl = "http://127.0.0.1:5000/getDetectedIngredients";
+
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(uploadImage);
+        HttpEntity<String> request = new HttpEntity<>(json, headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.postForEntity(pythonApiUrl, request, String.class);
+
+            //dönen listeyi arama algoritmasına sokacağız. recipeları liste olarak döneceğiz en son
+
+            return response;
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Python API isteği başarısız oldu. Hata: " + e.getMessage());
+        }
     }
 
     @GetMapping("/{id}")
