@@ -190,7 +190,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (14, 15); --lim
 
 
 -- Mantar Sote
-INSERT INTO recipe (id, name, calories, description, image) VALUES (15, 'Limon Soslu Patates Salatası', 120,
+INSERT INTO recipe (id, name, calories, description, image) VALUES (15, 'Mantar Sote', 120,
                                                                     'Hafif baharatlarla lezzetlendirilmiş, kavrulmuş mantarlar.',
                                                                     'https://www.becel.com/tr-tr/-/media/Project/Upfield/Brands/Becel-NL/Becel-TR/Assets/Recipes/sync-images/e2287947-c156-45ac-86e0-7830d4ce963e.jpg?rev=06e4dc765dd04814bac4d75ff9b024bf&w=900');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (15, 7); --sarımsak
@@ -213,3 +213,102 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 1); --sogan
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 2); --patates
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 3); --havuç
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (17, 35); --bezelye
+
+
+-- Pırasa Yemeği
+INSERT INTO recipe (id, name, calories, description, image) VALUES (18, 'Pırasa Yemeği', 120,
+                                                                    'Sağlıklı ve doyurucu bir pırasa yemeği.',
+                                                                    'https://cdn.yemek.com/mnresize/940/940/uploads/2019/12/terbiyeli-pirasa-yemegi-tarifi.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (18, 1); --sogan
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (18, 3); --havuç
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (18, 29); --pırasa
+
+
+-- Kereviz Yemeği
+INSERT INTO recipe (id, name, calories, description, image) VALUES (19, 'Kereviz Yemeği', 120,
+                                                                    'Besleyici ve doyurucu bir kereviz yemeği tarifi.',
+                                                                    'https://cdn.yemek.com/mnresize/1250/833/uploads/2015/10/portakalli-kereviz-yeni-onecikan.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (19, 1); --sogan
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (19, 2); --patates
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (19, 3); --havuç
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (19, 30); --kereviz
+
+
+-- Elmalı Tart
+INSERT INTO recipe (id, name, calories, description, image) VALUES (20, 'Elmalı Tart', 120,
+                                                                    'Yumuşak bir hamurun üzerine yerleştirilmiş elma dilimleriyle yapılan nefis bir tatlı tarifi.',
+                                                                    'https://cdn.yemek.com/mnresize/1250/833/uploads/2020/10/elmali-turta-tarifi-yemekcom.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (20, 3); --elma
+
+
+-- Muzlu Smoothie
+INSERT INTO recipe (id, name, calories, description, image) VALUES (21, 'Muzlu Smoothie', 120,
+                                                                    'Serinletici ve besleyici bir muzlu smoothie tarifi.',
+                                                                    'https://www.acibadem.com.tr/hayat/Images/YayinTarifler/muzlu-smoothie_6218_1.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (21, 11); --muz
+
+
+-- Domates Çorbası
+INSERT INTO recipe (id, name, calories, description, image) VALUES (22, 'Domates Çorbası', 120,
+                                                                    'Yemeklerinize eşlik edecek nefis bir domates çorbası tarifi.',
+                                                                    'https://iasbh.tmgrup.com.tr/86f9f1/1200/627/0/60/1500/844?u=https://isbh.tmgrup.com.tr/sbh/2019/08/21/domates-corbasi-tarifi-en-guzel-kremali-domates-corbasi-nasil-yapilir-1566386388767.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (22, 1); --sogan
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (22, 4); --domates
+
+
+-- Elmalı Kek
+INSERT INTO recipe (id, name, calories, description, image) VALUES (23, 'Elmalı Kek', 120,
+                                                                    'Elma dilimleriyle süslenmiş nefis bir kek tarifi.',
+                                                                    'https://cdn.ye-mek.net/App_UI/Img/out/650/2023/06/arasi-elmali-kek-resimli-yemek-tarifi(16).jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (23, 3); --elma
+
+
+-- Tavuk Çorbası
+INSERT INTO recipe (id, name, calories, description, image) VALUES (24, 'Tavuk Çorbası', 120,
+                                                                    'Ev yapımı lezzetli bir tavuk çorbası tarifi.',
+                                                                    'https://i.nefisyemektarifleri.com/2020/11/16/5-dakikada-pratik-tavuk-corbasi-sifa-corbasi-2.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (24, 1); --sogan
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (24, 36); --tavuk
+
+
+-- Elmalı Krep
+INSERT INTO recipe (id, name, calories, description, image) VALUES (25, 'Elmalı Krep', 120,
+                                                                    'Tatlı ve hafif bir atıştırmalık olan elmalı krep tarifi.',
+                                                                    'https://i.lezzet.com.tr/images-xxlarge-recipe/elmali_krep_tatlisi-504f96ce-8d24-47c8-8df7-1abe8aaa4814.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (25, 3); --elma
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (25, 6); --yumurta
+
+
+-- Ananaslı Kek
+INSERT INTO recipe (id, name, calories, description, image) VALUES (26, 'Ananıslı Kek', 120,
+                                                                    'Tropikal bir lezzet olan ananasın ferahlığını kek ile birleştiren nefis bir tatlı tarifi.',
+                                                                    'https://hanemdepisenler.com/wp-content/uploads/2012/06/1-sany1500.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (26, 34); --ananas
+
+
+-- Köfte Izgara
+INSERT INTO recipe (id, name, calories, description, image) VALUES (27, 'Köfte Izgara', 120,
+                                                                    'Baharatlarla lezzetlendirilmiş ve ızgarada pişirilmiş nefis bir köfte tarifi.',
+                                                                    'https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/mgt/izgara-kofte-1.webp');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (27, 38); --kıyma
+
+
+-- Tavuk Izgara
+INSERT INTO recipe (id, name, calories, description, image) VALUES (28, 'Tavuk Izgara', 120,
+                                                                    'Baharatlarla marine edilmiş ve ızgarada pişirilmiş nefis bir tavuk tarifi.',
+                                                                    'https://www.tavukiyidir.com/img/blog/blog_1108677.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (28, 36); --tavuk
+
+
+-- Tavuk Şinitzel
+INSERT INTO recipe (id, name, calories, description, image) VALUES (29, 'Tavuk Izgara', 120,
+                                                                    'Hafifçe pane edilmiş ve kızartılmış tavuk göğsü ile yapılan nefis bir tavuk tarifi.',
+                                                                    'https://api.developerkitchen.com/uploads/1599247813170221616.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (29, 36); --tavuk
+
+
+-- Et Şinitzel
+INSERT INTO recipe (id, name, calories, description, image) VALUES (30, 'Tavuk Izgara', 120,
+                                                                    'Hafifçe pane edilmiş ve kızartılmış tavuk göğsü ile yapılan nefis bir tavuk tarifi.',
+                                                                    'https://api.developerkitchen.com/uploads/1599247813170221616.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (30, 37); --et
