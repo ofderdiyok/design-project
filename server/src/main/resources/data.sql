@@ -161,3 +161,55 @@ INSERT INTO recipe (id, name, calories, description, image) VALUES (11, 'Zeytiny
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (11, 1); --soğan
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (11, 7); --sarımsak
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (11, 14); --brokoli
+
+
+-- Ispanaklı ve Peynirli Omlet
+INSERT INTO recipe (id, name, calories, description, image) VALUES (12, 'Ispanaklı ve Peynirli Omlet', 120,
+                                                                    'Ispanak ve peynir ile dolu lezzetli ve besleyici bir omlet.',
+                                                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOdQCpKz6_EeVCdnHMD_BDNYMLAEaIfqvqfDuDjxKu1jHHyJCYeKXYAxesQESfzzlHz8o&usqp=CAU');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (12, 6); --ıspanak
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 8); --peynir
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 9); --brokoli
+
+
+-- Domates ve Salatalık Salatası
+INSERT INTO recipe (id, name, calories, description, image) VALUES (13, 'Domates ve Salatalık Salatası', 120,
+                                                                    'Taze domates ve salatalıklarla yapılan hafif ve ferahlatıcı bir salata.',
+                                                                    'https://cdn.yemek.com/mnresize/1250/833/uploads/2022/10/domates-salatasi-sunum-yemekcom.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (13, 4); --ıspanak
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (13, 5); --salatalık
+
+
+-- Limon Soslu Patates Salatası
+INSERT INTO recipe (id, name, calories, description, image) VALUES (14, 'Limon Soslu Patates Salatası', 120,
+                                                                    'Narince bir limon sosuyla karıştırılmış ferahlatıcı bir patates salatası',
+                                                                    'https://cdn.yemek.com/mnresize/940/940/uploads/2020/01/patates-salatasi-yemekcom.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (14, 2); --patates
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (14, 12); --maydanoz
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (14, 15); --limon
+
+
+-- Mantar Sote
+INSERT INTO recipe (id, name, calories, description, image) VALUES (15, 'Limon Soslu Patates Salatası', 120,
+                                                                    'Hafif baharatlarla lezzetlendirilmiş, kavrulmuş mantarlar.',
+                                                                    'https://www.becel.com/tr-tr/-/media/Project/Upfield/Brands/Becel-NL/Becel-TR/Assets/Recipes/sync-images/e2287947-c156-45ac-86e0-7830d4ce963e.jpg?rev=06e4dc765dd04814bac4d75ff9b024bf&w=900');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (15, 7); --sarımsak
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (15, 24); --mantar
+
+
+-- Kereviz Salatası
+INSERT INTO recipe (id, name, calories, description, image) VALUES (16, 'Kereviz Salatası', 120,
+                                                                    'Kereviz ve limon sosuyla yapılan hafif ve lezzetli bir salata.',
+                                                                    'https://cdn.ye-mek.net/App_UI/Img/out/650/2019/09/cig-kereviz-salatasi-resimli-yemek-tarifi(7).jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (16, 15); --limon
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (16, 30); --kereviz
+
+
+-- Bezelye Yemeği
+INSERT INTO recipe (id, name, calories, description, image) VALUES (17, 'Bezelye Yemeği', 120,
+                                                                    'Sağlıklı ve lezzetli bir bezelye yemeği.',
+                                                                    'https://i.lezzet.com.tr/images-xxlarge-recipe/konserve-bezelye-yemegi-99995542-b088-4652-aa0f-2512271f295e.jpg');
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 1); --sogan
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 2); --patates
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 3); --havuç
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (17, 35); --bezelye
