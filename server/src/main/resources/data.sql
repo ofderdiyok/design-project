@@ -301,14 +301,14 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (28, 36); --tavu
 
 
 -- Tavuk Şinitzel
-INSERT INTO recipe (id, name, calories, description, image) VALUES (29, 'Tavuk Izgara', 120,
+INSERT INTO recipe (id, name, calories, description, image) VALUES (29, 'Tavuk Şinitzel', 120,
                                                                     'Hafifçe pane edilmiş ve kızartılmış tavuk göğsü ile yapılan nefis bir tavuk tarifi.',
                                                                     'https://api.developerkitchen.com/uploads/1599247813170221616.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (29, 36); --tavuk
 
 
 -- Et Şinitzel
-INSERT INTO recipe (id, name, calories, description, image) VALUES (30, 'Tavuk Izgara', 120,
-                                                                    'Hafifçe pane edilmiş ve kızartılmış tavuk göğsü ile yapılan nefis bir tavuk tarifi.',
-                                                                    'https://api.developerkitchen.com/uploads/1599247813170221616.jpg');
+INSERT INTO recipe (id, name, calories, description, image) VALUES (30, 'Et Şinitzel', 120,
+                                                                    'Hafifçe pane edilmiş ve kızartılmış dana eti ile yapılan lezzetli bir yemek tarifi.',
+                                                                    'https://cdn.yemek.com/mnresize/940/940/uploads/2023/09/dana-sinitzel.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (30, 37); --et
