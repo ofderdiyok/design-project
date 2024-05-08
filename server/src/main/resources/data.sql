@@ -13,6 +13,7 @@ ALTER TABLE if EXISTS c_recipeingredient ADD CONSTRAINT FK1y2it0upytd6c59fave8aj
 ALTER TABLE if EXISTS c_recipeingredient ADD CONSTRAINT FKbmrm3umi1x7oucc519kxmjt9g FOREIGN KEY (recipe_id) REFERENCES recipe;
 
 -- insert ingredients
+INSERT INTO ingredient (id, name) VALUES (0, 'Kiyma');
 INSERT INTO ingredient (id, name) VALUES (1, 'Soğan');
 INSERT INTO ingredient (id, name) VALUES (2, 'Patates');
 INSERT INTO ingredient (id, name) VALUES (3, 'Elma');
@@ -49,8 +50,6 @@ INSERT INTO ingredient (id, name) VALUES (33, 'Nar');
 INSERT INTO ingredient (id, name) VALUES (34, 'Ananas');
 INSERT INTO ingredient (id, name) VALUES (35, 'Bezelye');
 INSERT INTO ingredient (id, name) VALUES (36, 'Tavuk');
-INSERT INTO ingredient (id, name) VALUES (37, 'Et');
-INSERT INTO ingredient (id, name) VALUES (38, 'Kıyma');
 
 
 -- menemen
@@ -121,7 +120,7 @@ INSERT INTO recipe (id, name, calories, description, image) VALUES (7, 'Et Salat
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (7, 1); --soğan
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (7, 4); --domates
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (7, 27); --marul
-INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (7, 37); --et
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (7, 0); --kiyma
 
 
 -- sebze kızartması
@@ -290,7 +289,7 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (26, 34); --anan
 INSERT INTO recipe (id, name, calories, description, image) VALUES (27, 'Köfte Izgara', 120,
                                                                     'Baharatlarla lezzetlendirilmiş ve ızgarada pişirilmiş nefis bir köfte tarifi.',
                                                                     'https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/mgt/izgara-kofte-1.webp');
-INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (27, 38); --kıyma
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (27, 0); --kıyma
 
 
 -- Tavuk Izgara
@@ -311,4 +310,4 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (29, 36); --tavu
 INSERT INTO recipe (id, name, calories, description, image) VALUES (30, 'Et Şinitzel', 120,
                                                                     'Hafifçe pane edilmiş ve kızartılmış dana eti ile yapılan lezzetli bir yemek tarifi.',
                                                                     'https://cdn.yemek.com/mnresize/940/940/uploads/2023/09/dana-sinitzel.jpg');
-INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (30, 37); --et
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (30, 0); --kiyma
