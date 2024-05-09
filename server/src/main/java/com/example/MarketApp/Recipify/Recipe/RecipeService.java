@@ -2,8 +2,6 @@ package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredient;
 import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredientRepository;
-import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredientService;
-import com.example.MarketApp.Recipify.C_RecipeIngredient.dto.C_RecipeIngredientDetailDto;
 import com.example.MarketApp.Recipify.Ingredient.Ingredient;
 import com.example.MarketApp.Recipify.Ingredient.IngredientService;
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
@@ -53,6 +51,7 @@ public class RecipeService {
         entity.setDescription(detailDto.getDescription());
         entity.setCalories(detailDto.getCalories());
         entity.setImage(detailDto.getImage());
+        entity.setCategory(detailDto.getCategory());
 
         return entity;
     }
@@ -82,6 +81,7 @@ public class RecipeService {
         detailDto.setId(recipe.getId());
         detailDto.setName(recipe.getName());
         detailDto.setDescription(recipe.getDescription());
+        detailDto.setCategory(recipe.getCategory());
         detailDto.setCalories(recipe.getCalories());
         detailDto.setImage(recipe.getImage());
 

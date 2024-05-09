@@ -28,7 +28,7 @@ public class ImageStorageController {
     }
 
     @PostMapping("/uploadImage")
-    public List<Recipe> uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
+    public List<Recipe> uploadImage(@RequestParam("image") MultipartFile file, @RequestParam("category") String category) throws IOException {
         ImageStorage uploadImage = imageStorageService.uploadImage(file);
 
         //pythondan detect edilen ürünleri liste olarak dönecek
@@ -76,6 +76,7 @@ public class ImageStorageController {
             }
 
             recipeSearchDto.setIngredientSelectImplDtoList(searchDtoList);
+            recipeSearchDto.setCategory(category);
             List<Recipe> recipeList = recipeService.findAllByExample(recipeSearchDto);
 
             return recipeList;
