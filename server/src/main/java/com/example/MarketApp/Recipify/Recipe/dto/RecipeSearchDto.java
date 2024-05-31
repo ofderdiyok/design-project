@@ -6,6 +6,7 @@ import java.util.List;
 
 public class RecipeSearchDto {
     private String name;
+    private String category;
     private double minCalories;
     private double maxCalories;
     private List<IngredientSelectImplDto> ingredientSelectImplDtoList;
@@ -19,6 +20,14 @@ public class RecipeSearchDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public double getMinCalories() {

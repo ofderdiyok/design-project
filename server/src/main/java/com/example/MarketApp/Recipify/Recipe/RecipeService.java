@@ -2,8 +2,6 @@ package com.example.MarketApp.Recipify.Recipe;
 
 import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredient;
 import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredientRepository;
-import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredientService;
-import com.example.MarketApp.Recipify.C_RecipeIngredient.dto.C_RecipeIngredientDetailDto;
 import com.example.MarketApp.Recipify.Ingredient.Ingredient;
 import com.example.MarketApp.Recipify.Ingredient.IngredientService;
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientDetailDto;
@@ -14,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,6 +52,7 @@ public class RecipeService {
         entity.setDescription(detailDto.getDescription());
         entity.setCalories(detailDto.getCalories());
         entity.setImage(detailDto.getImage());
+        entity.setCategory(detailDto.getCategory());
 
         return entity;
     }
@@ -82,6 +82,7 @@ public class RecipeService {
         detailDto.setId(recipe.getId());
         detailDto.setName(recipe.getName());
         detailDto.setDescription(recipe.getDescription());
+        detailDto.setCategory(recipe.getCategory());
         detailDto.setCalories(recipe.getCalories());
         detailDto.setImage(recipe.getImage());
 
@@ -90,6 +91,34 @@ public class RecipeService {
 
     public List<Recipe> findAll() {
         return this.recipeRepository.findAll();
+    }
+
+    public ArrayList<com.example.MarketApp.Recipify.Recipe.helper.Recipe> findAllwithIngredients() {
+        List<Recipe> recipes = this.recipeRepository.findAll();
+
+        ArrayList<com.example.MarketApp.Recipify.Recipe.helper.Recipe> recipeList = new ArrayList<>();
+
+
+        for (Recipe recipe : recipes) {
+            List<C_RecipeIngredient> cRecipeIngredients = this.c_RecipeIngredientRepository.findAllByRecipeId(recipe.getId());
+            com.example.MarketApp.Recipify.Recipe.helper.Recipe recipeDto = new com.example.MarketApp.Recipify.Recipe.helper.Recipe();
+            recipeDto.setId(recipe.getId());
+            recipeDto.setName(recipe.getName());
+            recipeDto.setDescription(recipe.getDescription());
+            recipeDto.setCalories(recipe.getCalories());
+            recipeDto.setImage(recipe.getImage());
+            recipeDto.setCategory(recipe.getCategory());
+
+            ArrayList<String> ingredients = new ArrayList<>();
+
+            for (C_RecipeIngredient cRecipeIngredient : cRecipeIngredients) {
+                ingredients.add(cRecipeIngredient.getIngredient().getName());
+            }
+            recipeDto.setRecipeIngredients(ingredients);
+
+            recipeList.add(recipeDto);
+        }
+        return recipeList;
     }
 
     public RecipeDetailDto saveOrUpdate(RecipeDetailDto detailDto) {

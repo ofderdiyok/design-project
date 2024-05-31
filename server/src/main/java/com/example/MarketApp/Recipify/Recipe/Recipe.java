@@ -21,6 +21,9 @@ public class Recipe{
     @Column(name = "description")
     private String description;
 
+    @Column(name = "category")
+    private String category;
+
     @Column(name = "image")
     private String image;
 
@@ -56,6 +59,14 @@ public class Recipe{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getImage() {

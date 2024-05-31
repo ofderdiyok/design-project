@@ -38,6 +38,10 @@ public class RecipeRepositoryImpl implements RecipeRepositoryCustom{
             predicates.add(criteriaBuilder.equal(recipeRoot.get("name"), dto.getName()));
         }
 
+        if (dto.getCategory() != null){
+            predicates.add(criteriaBuilder.equal(recipeRoot.get("category"), dto.getCategory()));
+        }
+
         if (dto.getMinCalories() != 0){
             predicates.add(criteriaBuilder.greaterThanOrEqualTo(recipeRoot.get("calories"), dto.getMinCalories()));
         }
