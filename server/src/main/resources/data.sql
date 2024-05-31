@@ -166,9 +166,9 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (11, 14); --bro
 INSERT INTO recipe (id, name, category, calories, description, image) VALUES (12, 'Ispanaklı ve Peynirli Omlet', 'Öğün', 120,
                                                                     'Ispanak ve peynir ile dolu lezzetli ve besleyici bir omlet.',
                                                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOdQCpKz6_EeVCdnHMD_BDNYMLAEaIfqvqfDuDjxKu1jHHyJCYeKXYAxesQESfzzlHz8o&usqp=CAU');
-INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (12, 6); --ıspanak
-INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 8); --peynir
-INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 9); --brokoli
+INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (12, 6); --yumurta
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 8); --ıspanak
+INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (12, 9); --peynir
 
 
 -- Domates ve Salatalık Salatası

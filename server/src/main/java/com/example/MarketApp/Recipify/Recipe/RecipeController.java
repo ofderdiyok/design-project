@@ -24,6 +24,11 @@ public class RecipeController {
         return this.recipeService.findAll();
     }
 
+    @GetMapping("/listWithIngredients")
+    public List<com.example.MarketApp.Recipify.Recipe.helper.Recipe> findAllWithIngredients() {
+        return this.recipeService.findAllwithIngredients();
+    }
+
     @PostMapping("/save")
     public RecipeDetailDto saveEntity(@RequestBody RecipeDetailDto detailDto) {
         return this.recipeService.saveOrUpdate(detailDto);
