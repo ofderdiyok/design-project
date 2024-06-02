@@ -53,7 +53,7 @@ INSERT INTO ingredient (id, name) VALUES (36, 'Tavuk');
 
 
 -- menemen
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (1, 'Sebzeli Omlet', 'Genel', 188,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (1, 'Sebzeli Omlet', 'Ogun', 188,
                                                                 'Taze sebzelerle dolu lezzetli ve besleyici bir omlet.',
                                                                 'https://i2.nefisyemektarifleri.com/user-photos/2021/01/24/nyt-up-2480400_recipe-2021-01-24-13-36-01.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (1,1); --soğan
@@ -75,7 +75,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (2, 19); --bibe
 INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (2, 20); --zeytin
 
 -- tavuk sote
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (3, 'Tavuk Sote', 'Genel', 169,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (3, 'Tavuk Sote', 'Ogun', 169,
                                                                     'Çeşitli sebzelerle hızlı ve lezzetli bir tavuk sote.',
                                                                     'https://i.ytimg.com/vi/SOlm4nkd-J4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDN4cC5RLM7CSuGSwyMTAumhBvqAA');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (3, 1); --soğan
@@ -124,7 +124,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (7, 0); --kiyma
 
 
 -- sebze kızartması
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (8, 'Sebze Kızartma', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (8, 'Sebze Kızartma', 'Ogun', 120,
                                                                     'Farklı sebzelerin kızartılarak hazırlandığı lezzetli bir sebze yemeği.',
                                                                     'https://cdn.yemek.com/mnresize/1250/833/uploads/2015/08/karisik-kizartma-yenionecikan.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (8, 2); --patates
@@ -135,7 +135,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (8, 18); --kaba
 
 
 -- Zeytinyağlı Kabak Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (9, 'Zeytinyağlı Kabak Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (9, 'Zeytinyağlı Kabak Yemeği', 'Ogun', 120,
                                                                     'Zeytinyağında pişirilmiş, baharatlarla lezzetlendirilmiş sağlıklı bir kabak yemeği.',
                                                                     'https://cdn.yemek.com/mnresize/1250/833/uploads/2019/07/kabak-yemegi-onecikan.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (9, 1); --soğan
@@ -145,7 +145,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (9, 17); --kaba
 
 
 -- Zeytinyağlı Patlıcan Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (10, 'Zeytinyağlı Patlıcan Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (10, 'Zeytinyağlı Patlıcan Yemeği', 'Ogun', 120,
                                                                     'Zeytinyağında pişirilmiş, baharatlarla lezzetlendirilmiş sağlıklı bir patlıcan yemeği.',
                                                                     'https://i20.haber7.net/resize/1280x720//haber/haber7/photos/2023/14/zeytinyagli_patlican_yemegi_nasil_yapilir_zeytinyagli_patlican_yemegi_tarifi_1680596072_057.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (10, 1); --soğan
@@ -154,7 +154,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (10, 18); --sar
 
 
 -- Zeytinyağlı Brokoli Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (11, 'Zeytinyağlı Brokoli Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (11, 'Zeytinyağlı Brokoli Yemeği', 'Ogun', 120,
                                                                     'Sağlıklı ve lezzetli bir brokoli yemeği zeytinyağı ve baharatlarla hazırlanmıştır.',
                                                                     'https://cdn.yemek.com/mnresize/1250/833/uploads/2022/01/zeytinyagli-brokoli-yemegi-one-cikan.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (11, 1); --soğan
@@ -163,7 +163,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (11, 14); --bro
 
 
 -- Ispanaklı ve Peynirli Omlet
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (12, 'Ispanaklı ve Peynirli Omlet', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (12, 'Ispanaklı ve Peynirli Omlet', 'Ogun', 120,
                                                                     'Ispanak ve peynir ile dolu lezzetli ve besleyici bir omlet.',
                                                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOdQCpKz6_EeVCdnHMD_BDNYMLAEaIfqvqfDuDjxKu1jHHyJCYeKXYAxesQESfzzlHz8o&usqp=CAU');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (12, 6); --yumurta
@@ -189,7 +189,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (14, 15); --lim
 
 
 -- Mantar Sote
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (15, 'Mantar Sote', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (15, 'Mantar Sote', 'Ogun', 120,
                                                                     'Hafif baharatlarla lezzetlendirilmiş, kavrulmuş mantarlar.',
                                                                     'https://www.becel.com/tr-tr/-/media/Project/Upfield/Brands/Becel-NL/Becel-TR/Assets/Recipes/sync-images/e2287947-c156-45ac-86e0-7830d4ce963e.jpg?rev=06e4dc765dd04814bac4d75ff9b024bf&w=900');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (15, 7); --sarımsak
@@ -205,7 +205,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (16, 30); --ker
 
 
 -- Bezelye Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (17, 'Bezelye Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (17, 'Bezelye Yemeği', 'Ogun', 120,
                                                                     'Sağlıklı ve lezzetli bir bezelye yemeği.',
                                                                     'https://i.lezzet.com.tr/images-xxlarge-recipe/konserve-bezelye-yemegi-99995542-b088-4652-aa0f-2512271f295e.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (17, 1); --sogan
@@ -215,7 +215,7 @@ INSERT INTO c_recipeingredient (recipe_id, ingredient_id) VALUES (17, 35); --bez
 
 
 -- Pırasa Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (18, 'Pırasa Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (18, 'Pırasa Yemeği', 'Ogun', 120,
                                                                     'Sağlıklı ve doyurucu bir pırasa yemeği.',
                                                                     'https://cdn.yemek.com/mnresize/940/940/uploads/2019/12/terbiyeli-pirasa-yemegi-tarifi.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (18, 1); --sogan
@@ -224,7 +224,7 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (18, 29); --pır
 
 
 -- Kereviz Yemeği
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (19, 'Kereviz Yemeği', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (19, 'Kereviz Yemeği', 'Ogun', 120,
                                                                     'Besleyici ve doyurucu bir kereviz yemeği tarifi.',
                                                                     'https://cdn.yemek.com/mnresize/1250/833/uploads/2015/10/portakalli-kereviz-yeni-onecikan.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (19, 1); --sogan
@@ -286,28 +286,28 @@ INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (26, 34); --anan
 
 
 -- Köfte Izgara
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (27, 'Köfte Izgara', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (27, 'Köfte Izgara', 'Ogun', 120,
                                                                     'Baharatlarla lezzetlendirilmiş ve ızgarada pişirilmiş nefis bir köfte tarifi.',
                                                                     'https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/mgt/izgara-kofte-1.webp');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (27, 0); --kıyma
 
 
 -- Tavuk Izgara
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (28, 'Tavuk Izgara', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (28, 'Tavuk Izgara', 'Ogun', 120,
                                                                     'Baharatlarla marine edilmiş ve ızgarada pişirilmiş nefis bir tavuk tarifi.',
                                                                     'https://www.tavukiyidir.com/img/blog/blog_1108677.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (28, 36); --tavuk
 
 
 -- Tavuk Şinitzel
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (29, 'Tavuk Şinitzel', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (29, 'Tavuk Şinitzel', 'Ogun', 120,
                                                                     'Hafifçe pane edilmiş ve kızartılmış tavuk göğsü ile yapılan nefis bir tavuk tarifi.',
                                                                     'https://api.developerkitchen.com/uploads/1599247813170221616.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (29, 36); --tavuk
 
 
 -- Et Şinitzel
-INSERT INTO recipe (id, name, category, calories, description, image) VALUES (30, 'Et Şinitzel', 'Genel', 120,
+INSERT INTO recipe (id, name, category, calories, description, image) VALUES (30, 'Et Şinitzel', 'Ogun', 120,
                                                                     'Hafifçe pane edilmiş ve kızartılmış dana eti ile yapılan lezzetli bir yemek tarifi.',
                                                                     'https://cdn.yemek.com/mnresize/940/940/uploads/2023/09/dana-sinitzel.jpg');
 INSERT INTO c_recipeingredient (recipe_id,ingredient_id) VALUES (30, 0); --kiyma

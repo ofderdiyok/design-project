@@ -38,7 +38,7 @@ public class RecipeRepositoryImpl implements RecipeRepositoryCustom{
             predicates.add(criteriaBuilder.equal(recipeRoot.get("name"), dto.getName()));
         }
 
-        if (dto.getCategory() != null){
+        if (dto.getCategory() != null && !dto.getCategory().isEmpty()){
             predicates.add(criteriaBuilder.equal(recipeRoot.get("category"), dto.getCategory()));
         }
 
