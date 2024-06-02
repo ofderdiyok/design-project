@@ -94,6 +94,8 @@ public class ImageStorageController {
                 recipeDto.setCalories(recipe.getCalories());
                 recipeDto.setImage(recipe.getImage());
                 recipeDto.setCategory(recipe.getCategory());
+                recipeDto.setInstructions(recipe.getInstructions());
+                recipeDto.setTotalTime(recipe.getTotalTime());
 
                 ArrayList<String> ingredients = new ArrayList<>();
 

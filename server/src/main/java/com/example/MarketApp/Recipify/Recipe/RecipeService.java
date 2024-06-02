@@ -53,6 +53,8 @@ public class RecipeService {
         entity.setCalories(detailDto.getCalories());
         entity.setImage(detailDto.getImage());
         entity.setCategory(detailDto.getCategory());
+        entity.setTotalTime(detailDto.getTotalTime());
+        entity.setInstructions(detailDto.getInstructions());
 
         return entity;
     }
@@ -85,6 +87,8 @@ public class RecipeService {
         detailDto.setCategory(recipe.getCategory());
         detailDto.setCalories(recipe.getCalories());
         detailDto.setImage(recipe.getImage());
+        detailDto.setTotalTime(recipe.getTotalTime());
+        detailDto.setInstructions(recipe.getInstructions());
 
         return detailDto;
     }
@@ -108,6 +112,8 @@ public class RecipeService {
             recipeDto.setCalories(recipe.getCalories());
             recipeDto.setImage(recipe.getImage());
             recipeDto.setCategory(recipe.getCategory());
+            recipeDto.setTotalTime(recipe.getTotalTime());
+            recipeDto.setInstructions(recipe.getInstructions());
 
             ArrayList<String> ingredients = new ArrayList<>();
 

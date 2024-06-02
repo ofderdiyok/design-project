@@ -10,6 +10,8 @@ public class RecipeDetailDto {
     private String image;
     private double calories;
     private ArrayList<String> ingredients;
+    private Integer totalTime;
+    private String instructions;
 
     public RecipeDetailDto() {
     }
@@ -68,5 +70,21 @@ public class RecipeDetailDto {
 
     public void setIngredients(ArrayList<String> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Integer getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Integer totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

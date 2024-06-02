@@ -13,6 +13,8 @@ public class Recipe {
     private String image;
     private double calories;
     private ArrayList<String> recipeIngredients = new ArrayList<>();
+    private Integer totalTime;
+    private String instructions;
 
     public Recipe() {
     }
@@ -72,5 +74,21 @@ public class Recipe {
 
     public void setRecipeIngredients(ArrayList<String> recipeIngredients) {
         this.recipeIngredients = recipeIngredients;
+    }
+
+    public Integer getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Integer totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

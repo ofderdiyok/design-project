@@ -30,6 +30,12 @@ public class Recipe{
     @Column(name = "calories")
     private double calories;
 
+    @Column(name = "totalTime")
+    private Integer totalTime;
+
+    @Column(name = "instructions")
+    private String instructions;
+
     @JsonIgnore
     @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
     private Set<C_RecipeIngredient> recipeIngredients = new HashSet<>();
@@ -83,6 +89,22 @@ public class Recipe{
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+
+    public Integer getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Integer totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
     public Set<C_RecipeIngredient> getRecipeIngredients() {
