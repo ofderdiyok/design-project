@@ -1,5 +1,7 @@
 package com.example.MarketApp.Recipify.ImageStorage;
 
+import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredient;
+import com.example.MarketApp.Recipify.C_RecipeIngredient.C_RecipeIngredientRepository;
 import com.example.MarketApp.Recipify.Ingredient.dto.IngredientSelectImplDto;
 import com.example.MarketApp.Recipify.Recipe.Recipe;
 import com.example.MarketApp.Recipify.Recipe.RecipeService;
@@ -21,14 +23,16 @@ public class ImageStorageController {
 
     private final ImageStorageService imageStorageService;
     private final RecipeService recipeService;
+    private final C_RecipeIngredientRepository c_RecipeIngredientRepository;
 
-    public ImageStorageController(ImageStorageService imageStorageService, RecipeService recipeService) {
+    public ImageStorageController(ImageStorageService imageStorageService, RecipeService recipeService, C_RecipeIngredientRepository cRecipeIngredientRepository) {
         this.imageStorageService = imageStorageService;
         this.recipeService = recipeService;
+        c_RecipeIngredientRepository = cRecipeIngredientRepository;
     }
 
     @PostMapping("/uploadImage")
-    public List<Recipe> uploadImage(@RequestParam("image") MultipartFile file, @RequestParam("category") String category) throws IOException {
+    public List<com.example.MarketApp.Recipify.Recipe.helper.Recipe> uploadImage(@RequestParam("image") MultipartFile file, @RequestParam("category") String category) throws IOException {
         ImageStorage uploadImage = imageStorageService.uploadImage(file);
 
         //pythondan detect edilen ürünleri liste olarak dönecek
@@ -77,8 +81,29 @@ public class ImageStorageController {
 
             recipeSearchDto.setIngredientSelectImplDtoList(searchDtoList);
             recipeSearchDto.setCategory(category);
-            List<Recipe> recipeList = recipeService.findAllByExample(recipeSearchDto);
+            List<Recipe> recipes = recipeService.findAllByExample(recipeSearchDto);
+            ArrayList<com.example.MarketApp.Recipify.Recipe.helper.Recipe> recipeList = new ArrayList<>();
 
+
+            for (Recipe recipe : recipes) {
+                List<C_RecipeIngredient> cRecipeIngredients = this.c_RecipeIngredientRepository.findAllByRecipeId(recipe.getId());
+                com.example.MarketApp.Recipify.Recipe.helper.Recipe recipeDto = new com.example.MarketApp.Recipify.Recipe.helper.Recipe();
+                recipeDto.setId(recipe.getId());
+                recipeDto.setName(recipe.getName());
+                recipeDto.setDescription(recipe.getDescription());
+                recipeDto.setCalories(recipe.getCalories());
+                recipeDto.setImage(recipe.getImage());
+                recipeDto.setCategory(recipe.getCategory());
+
+                ArrayList<String> ingredients = new ArrayList<>();
+
+                for (C_RecipeIngredient cRecipeIngredient : cRecipeIngredients) {
+                    ingredients.add(cRecipeIngredient.getIngredient().getName());
+                }
+                recipeDto.setRecipeIngredients(ingredients);
+
+                recipeList.add(recipeDto);
+            }
             return recipeList;
         } catch (Exception e) {
             return null;
