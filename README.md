@@ -11,7 +11,6 @@ Usage
 Project Structure
 Technologies Used
 Contributing
-License
 Acknowledgements
 
 Introduction
